@@ -43,6 +43,18 @@ ORDER BY COUNT(payment_id)  DESC LIMIT 1 ;
 
 <img width="763" alt="Снимок экрана 2023-10-21 в 19 56 21" src="https://github.com/otuzi/spqpart2/assets/61628386/dc25a626-7750-4d3d-adce-acaec41c3e8d">
 
+### Скорректировнный запрос:
+```
+SELECT 
+    DATE_FORMAT(payment_date, '%Y-%m') AS MonthYear, COUNT(payment_id) As Payments, SUM(amount) AS Amount 
+FROM 
+    payment 
+GROUP BY 
+    MonthYear
+ORDER BY 
+    SUM(amount) DESC 
+LIMIT 1;
+```
 
 
 ## Дополнительные задания (со звёздочкой*)
